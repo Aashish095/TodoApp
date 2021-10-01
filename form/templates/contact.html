@@ -1,0 +1,45 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md">
+		<h5>Contact Book👨‍👨‍👧‍👦</h5>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<div class="card card-body">
+					<form method="get">
+						{{myFilter.form.as_table}}
+						<button class="btn btn-primary" type="submit">Search</button>
+					</form>
+				</div>
+			<div>
+		</div>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'formcreate' %}">Create Contact</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Date Created<th>
+				</tr>
+
+				{% for user in user %}
+					<tr>
+						<td>{{user.name}}</td>
+						<td>{{user.phone}}</td>
+						<td>{{user.date_created}}
+						<td><a class="btn btn-sm btn-info"  href="{% url 'formupdate' user.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'formdelete' user.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+
+
+{% endblock %}

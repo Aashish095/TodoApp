@@ -1,0 +1,18 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+    <div class="container my-3">
+      <div class="card card-body">
+        <h3>Contacts</h3>
+        <form method="POST" action="" >
+          <div class="form-group">
+            {% csrf_token %}
+            {{form.as_p}}
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+
+
+{% endblock %}
